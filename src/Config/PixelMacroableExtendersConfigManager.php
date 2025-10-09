@@ -13,7 +13,7 @@ class PixelMacroableExtendersConfigManager
 {    
     public static function getConfigFileFullName()  :string
     {
-        return static::getConfigFileName();
+        return static::getConfigFileName() . ".php";
     }
 
     public static function getConfigFileName()  :string
