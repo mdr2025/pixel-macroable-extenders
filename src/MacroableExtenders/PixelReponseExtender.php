@@ -22,10 +22,14 @@ class PixelReponseExtender extends PixelMacroableExtender
 
     protected function defineResponseSuccessMacro() : void
     { 
-        Response::macro('success', function (array|EloquentCollection|StdCollection $data, array $messages = [], int $code = 200): JsonResponse {
+        Response::macro('success', function (array|EloquentCollection|StdCollection $data, string |array $messages = "", int $code = 200): JsonResponse {
             
             /** @var ResponseFactory $this */
 
+            if (is_array($messages)) {
+                $messages = join(", ", $messages);
+            }
+        
             return $this->json([
                 'status' => 'success',
                 'messages' => $messages,
