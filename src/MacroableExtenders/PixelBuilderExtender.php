@@ -101,7 +101,7 @@ class PixelBuilderExtender extends PixelMacroableExtender
                 // Function to handle sorting by a column with numeric strings
                 $numericSort = function ($column)
                                {
-                                   return DB::raw("CAST($column AS UNSIGNED)")->getValue();
+                                   return DB::raw("CAST($column AS UNSIGNED)");
                                };
         
                 if (str_contains($requestSortColumn, '.')) {
